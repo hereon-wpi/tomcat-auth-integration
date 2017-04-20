@@ -4,7 +4,8 @@
 
 via properties:
 
-```#!java
+```
+#!java
 
 PlainText plainText = PlainText.fromProperties(tomcat, loginProperties);
 plainText.configure();
@@ -21,7 +22,8 @@ here roles must match security roles in web.xml
 
 ## Kerberos (DESY specific)
 
-```#!java
+```
+#!java
 Kerberos kerberos = new Kerberos(tomcat, "PreExperimentDataCollector");
 kerberos.configure();
 ```
