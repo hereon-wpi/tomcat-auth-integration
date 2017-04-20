@@ -11,7 +11,7 @@ PlainText plainText = PlainText.fromProperties(tomcat, loginProperties);
 plainText.configure();
 ```
 
-where properties:
+where *loginProperties*:
 
 ```
 tomcat.user.ingvord=test
