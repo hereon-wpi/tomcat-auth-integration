@@ -28,7 +28,7 @@ Kerberos kerberos = new Kerberos(tomcat, "PreExperimentDataCollector");
 kerberos.configure();
 ```
 
-`jaas.conf` file must be present in classpath:
+`jaas.conf` file must be present in the classpath:
 
 `src/main/resources/jaas.conf`
 ```
