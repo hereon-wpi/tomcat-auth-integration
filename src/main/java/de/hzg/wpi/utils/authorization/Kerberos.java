@@ -11,18 +11,22 @@ import javax.security.auth.kerberos.KerberosPrincipal;
  * @since 4/20/17
  */
 public class Kerberos {
+    private final Tomcat tomcat;
+    private final String application;
 
-    //TODO inject
-    Tomcat tomcat;
+    public Kerberos(Tomcat tomcat, String application) {
+        this.tomcat = tomcat;
+        this.application = application;
+    }
 
     public void configure() {
         JAASRealm jaasRealm = new JAASRealm();
 
-        jaasRealm.setAppName("PreExperimentDataCollector"); //TODO inject
+        jaasRealm.setAppName(application);
         jaasRealm.setUserClassNames(KerberosPrincipal.class.getName());
         jaasRealm.setRoleClassNames(GenericPrincipal.class.getName());
         jaasRealm.setUseContextClassLoader(true);
-        jaasRealm.setConfigFile("/jaas.conf");
+        jaasRealm.setConfigFile("jaas.conf");
 
         tomcat.getEngine().setRealm(jaasRealm);
     }
