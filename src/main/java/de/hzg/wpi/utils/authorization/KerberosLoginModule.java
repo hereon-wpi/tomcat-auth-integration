@@ -90,7 +90,7 @@ public class KerberosLoginModule implements LoginModule {
         boolean answer = krbmod.commit();
 
         if (answer && subject != null) {
-            GenericPrincipal role = new GenericPrincipal("user", null);
+            GenericPrincipal role = new GenericPrincipal("desy-user", null);
 
             subject.getPrincipals().add(role);
         }
