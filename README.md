@@ -1,3 +1,5 @@
+[![Download](https://api.bintray.com/packages/hzgde/hzg-wpn-projects/krb-authorization/images/download.svg) ](https://bintray.com/hzgde/hzg-wpn-projects/krb-authorization/_latestVersion)
+
 # Usage 
 
 ## PlainText
