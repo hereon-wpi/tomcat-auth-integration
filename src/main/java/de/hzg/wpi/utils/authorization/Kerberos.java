@@ -1,8 +1,8 @@
 package de.hzg.wpi.utils.authorization;
 
-import org.apache.catalina.realm.GenericPrincipal;
 import org.apache.catalina.realm.JAASRealm;
 import org.apache.catalina.startup.Tomcat;
+import org.apache.catalina.users.MemoryRole;
 
 import javax.security.auth.kerberos.KerberosPrincipal;
 
@@ -24,7 +24,7 @@ public class Kerberos {
 
         jaasRealm.setAppName(application);
         jaasRealm.setUserClassNames(KerberosPrincipal.class.getName());
-        jaasRealm.setRoleClassNames(GenericPrincipal.class.getName());
+        jaasRealm.setRoleClassNames(MemoryRole.class.getName());
         jaasRealm.setUseContextClassLoader(true);
         jaasRealm.setConfigFile("jaas.conf");
 
