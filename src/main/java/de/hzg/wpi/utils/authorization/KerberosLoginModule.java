@@ -29,7 +29,9 @@
 package de.hzg.wpi.utils.authorization;
 
 import com.sun.security.auth.module.Krb5LoginModule;
+import org.apache.catalina.Role;
 import org.apache.catalina.realm.GenericPrincipal;
+import org.apache.catalina.users.MemoryUserDatabase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -63,6 +65,7 @@ public class KerberosLoginModule implements LoginModule {
         }
     }
 
+    private final MemoryUserDatabase database = new MemoryUserDatabase();
     private Krb5LoginModule krbmod;
     private Subject subject = null;
 
@@ -90,7 +93,7 @@ public class KerberosLoginModule implements LoginModule {
         boolean answer = krbmod.commit();
 
         if (answer && subject != null) {
-            GenericPrincipal role = new GenericPrincipal("desy-user", null);
+            Role role = database.createRole("desy-user", "built-in role for DESY kerberos setup");
 
             subject.getPrincipals().add(role);
         }
