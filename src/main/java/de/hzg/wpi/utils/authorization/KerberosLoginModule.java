@@ -56,15 +56,6 @@ import java.util.Map;
 public class KerberosLoginModule implements LoginModule {
     private final static Logger logger = LoggerFactory.getLogger(KerberosLoginModule.class);
 
-    static {
-        try {
-            System.getProperties().load(KerberosLoginModule.class.getClassLoader().getResourceAsStream("kerberos.properties"));
-        } catch (IOException e) {
-            logger.error("Falied to load kerberos.properties due to ", e);
-            throw new RuntimeException(e);
-        }
-    }
-
     private final MemoryUserDatabase database = new MemoryUserDatabase();
     private Krb5LoginModule krbmod;
     private Subject subject = null;
