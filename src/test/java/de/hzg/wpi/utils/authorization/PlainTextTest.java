@@ -21,9 +21,9 @@ public class PlainTextTest {
         properties.setProperty("tomcat.user.ingvord", "test");
         properties.setProperty("tomcat.roles.ingvord", "mtango-user,mtango-rest,mtango-groovy");
 
-        PlainText instance = PlainText.fromProperties(tomcat, properties);
+        PlainText instance = PlainText.fromProperties(properties);
 
-        instance.configure();
+        instance.configure(tomcat);
 
 
         verify(tomcat, atLeastOnce()).addUser("ingvord", "test");
