@@ -10,16 +10,14 @@ import javax.security.auth.kerberos.KerberosPrincipal;
  * @author ingvord
  * @since 4/20/17
  */
-public class Kerberos {
-    private final Tomcat tomcat;
+public class Kerberos implements AuthorizationMechanism {
     private final String application;
 
-    public Kerberos(Tomcat tomcat, String application) {
-        this.tomcat = tomcat;
+    public Kerberos(String application) {
         this.application = application;
     }
 
-    public void configure() {
+    public void configure(Tomcat tomcat) {
         JAASRealm jaasRealm = new JAASRealm();
 
         jaasRealm.setAppName(application);

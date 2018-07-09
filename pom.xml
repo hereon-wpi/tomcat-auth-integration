@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.hzg.wpi.utils</groupId>
-    <artifactId>krb-authorization</artifactId>
+    <artifactId>authorization</artifactId>
     <version>0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -18,16 +18,16 @@
     </developers>
 
     <scm>
-        <connection>scm:hg:https://bitbucket.org/hzgwpn/${project.artifactId}</connection>
-        <developerConnection>scm:hg:ssh://hg@bitbucket.org/hzgwpn/${project.artifactId}</developerConnection>
-        <url>ssh://hg@bitbucket.org/hzgwpn/${project.artifactId}</url>
+        <connection>scm:hg:https://bitbucket.org/hzgwpn/krb-${project.artifactId}</connection>
+        <developerConnection>scm:hg:ssh://hg@bitbucket.org/hzgwpn/krb-${project.artifactId}</developerConnection>
+        <url>ssh://hg@bitbucket.org/hzgwpn/krb-${project.artifactId}</url>
       <tag>HEAD</tag>
   </scm>
 
     <distributionManagement>
         <repository>
             <id>bintray-hzg</id>
-            <url>https://api.bintray.com/maven/hzgde/hzg-wpn-projects/${project.artifactId}/;publish=1</url>
+            <url>https://api.bintray.com/maven/hzgde/hzg-wpn-projects/krb-${project.artifactId}/;publish=1</url>
         </repository>
     </distributionManagement>
 
@@ -66,6 +66,11 @@
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
             <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>hzg.wpn</groupId>
+            <artifactId>utils</artifactId>
+            <version>0.0.10</version>
         </dependency>
     </dependencies>
 

@@ -12,20 +12,18 @@ import java.util.*;
  * @author ingvord
  * @since 4/20/17
  */
-public class PlainText {
+public class PlainText implements AuthorizationMechanism {
 
 
-    private final Tomcat tomcat;
     private final Map<String, String> users;
     private final MultivaluedMap<String, String> roles;
 
-    public PlainText(Tomcat tomcat, Map<String, String> users, MultivaluedMap<String, String> roles) {
-        this.tomcat = tomcat;
+    public PlainText(Map<String, String> users, MultivaluedMap<String, String> roles) {
         this.users = users;
         this.roles = roles;
     }
 
-    public static PlainText fromProperties(Tomcat tomcat, Properties properties) {
+    public static PlainText fromProperties(Properties properties) {
         Logger logger = LoggerFactory.getLogger(PlainText.class);
 
         Map<String, String> users = new HashMap<>();
@@ -41,10 +39,11 @@ public class PlainText {
         }
 
 
-        return new PlainText(tomcat, users, roles);
+        return new PlainText(users, roles);
     }
 
-    public void configure() {
+    @Override
+    public void configure(Tomcat tomcat) {
         for (Map.Entry<String, String> user : users.entrySet()) {
             tomcat.addUser(user.getKey(), user.getValue());
         }
