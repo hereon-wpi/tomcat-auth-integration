@@ -4,7 +4,7 @@
 
     <groupId>de.hzg.wpi.utils</groupId>
     <artifactId>authorization</artifactId>
-    <version>0.5-SNAPSHOT</version>
+    <version>0.5</version>
     <packaging>jar</packaging>
 
     <developers>
@@ -21,7 +21,7 @@
         <connection>scm:hg:https://bitbucket.org/hzgwpn/krb-${project.artifactId}</connection>
         <developerConnection>scm:hg:ssh://hg@bitbucket.org/hzgwpn/krb-${project.artifactId}</developerConnection>
         <url>ssh://hg@bitbucket.org/hzgwpn/krb-${project.artifactId}</url>
-      <tag>HEAD</tag>
+      <tag>authorization-0.5</tag>
   </scm>
 
     <distributionManagement>
