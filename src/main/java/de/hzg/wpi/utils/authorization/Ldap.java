@@ -1,19 +1,13 @@
 package de.hzg.wpi.utils.authorization;
 
+import de.hzg.wpi.tomcat.CacheableRealm;
 import hzg.wpn.xenv.ResourceManager;
 import org.apache.catalina.realm.JNDIRealm;
 import org.apache.catalina.startup.Tomcat;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
 
 /**
  * @author ingvord
@@ -52,6 +46,10 @@ public class Ldap implements AuthorizationMechanism {
 
         ldapRealm.setCommonRole("mtango-rest");
 
-        tomcat.getEngine().setRealm(ldapRealm);
+        CacheableRealm cacheableRealm = new CacheableRealm();
+
+        cacheableRealm.addRealm(ldapRealm);
+
+        tomcat.getEngine().setRealm(cacheableRealm);
     }
 }
