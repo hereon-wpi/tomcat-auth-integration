@@ -38,7 +38,7 @@ public class DelayedOnFailureRealmTest {
 
 
         assertNull(result);
-        verify(mockRealm, calls(RETRIES_THRESHOLD));
+        verify(mockRealm, times(RETRIES_THRESHOLD)).authenticate("test", "test");
     }
 
     @Test
@@ -67,6 +67,6 @@ public class DelayedOnFailureRealmTest {
 
 
         assertNull(result);
-        verify(mockRealm, calls(RETRIES_THRESHOLD + 1));
+        verify(mockRealm, times(RETRIES_THRESHOLD + 1)).authenticate("test", "test");
     }
 }
