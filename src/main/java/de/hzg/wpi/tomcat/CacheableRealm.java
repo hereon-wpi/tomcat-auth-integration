@@ -10,7 +10,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * @author Igor Khokhriakov <igor.khokhriakov@hzg.de>
@@ -41,17 +40,11 @@ public class CacheableRealm extends CombinedRealm {
                 return principal;
             });
         } catch (ExecutionException| UncheckedExecutionException e) {
-            return authenticateInternal(username, credentials);
+            return null;
         }
     }
 
     protected Principal authenticateInternal(String username, String credentials) {
         return super.authenticate(username, credentials);
-    }
-
-    public void setCacheSettings(String settings) {
-        checkNotNull(settings, "Pre-condition violated: settings must not be null.");
-
-        authCache = CacheBuilder.from(settings).build();
     }
 }
