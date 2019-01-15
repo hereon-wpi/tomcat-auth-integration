@@ -1,6 +1,6 @@
 package de.hzg.wpi.utils.authorization;
 
-import de.hzg.wpi.tomcat.CacheableRealm;
+import de.hzg.wpi.tomcat.DelayedOnFailureRealm;
 import hzg.wpn.xenv.ResourceManager;
 import org.apache.catalina.realm.JNDIRealm;
 import org.apache.catalina.startup.Tomcat;
@@ -46,10 +46,10 @@ public class Ldap implements AuthorizationMechanism {
 
         ldapRealm.setCommonRole("mtango-rest");
 
-        CacheableRealm cacheableRealm = new CacheableRealm();
+        DelayedOnFailureRealm delayedOnFailureRealm = new DelayedOnFailureRealm();
 
-        cacheableRealm.addRealm(ldapRealm);
+        delayedOnFailureRealm.addRealm(ldapRealm);
 
-        tomcat.getEngine().setRealm(cacheableRealm);
+        tomcat.getEngine().setRealm(delayedOnFailureRealm);
     }
 }
