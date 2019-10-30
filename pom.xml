@@ -17,12 +17,17 @@
         </developer>
     </developers>
 
+    <properties>
+        <github.organization>hzg-wpi</github.organization>
+        <github.repo>tomcat-auth-integration</github.repo>
+    </properties>
+
     <scm>
-        <connection>scm:hg:https://bitbucket.org/hzgwpn/krb-${project.artifactId}</connection>
-        <developerConnection>scm:hg:ssh://hg@bitbucket.org/hzgwpn/krb-${project.artifactId}</developerConnection>
-        <url>ssh://hg@bitbucket.org/hzgwpn/krb-${project.artifactId}</url>
-      <tag>HEAD</tag>
-  </scm>
+        <connection>scm:git:git@github.com:${github.organization}/${github.repo}.git</connection>
+        <developerConnection>scm:git:git@github.com:${github.organization}/${github.repo}.git</developerConnection>
+        <url>https://github.com/${github.organization}/${github.repo}</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <distributionManagement>
         <repository>
